@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e94193828e.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="content">
+        <div class="images">
+          <img src="img/1.jpg" alt="" />
+          <img src="img/2.jpg" alt="" />
+          <img src="img/3.jpg" alt="" />
+          <img src="img/4.jpg" alt="" />
+          <img src="img/5.jpg" alt="" />
+        </div>
+  
+        <div onclick="sideSlide(-1)" class="slide left">
+          <span class="fas fa-angle-left"></span>
+        </div>
+  
+        <div onclick="sideSlide(1)" class="slide right">
+          <span class="fas fa-angle-right"></span>
+        </div>
+  
+        <div class="btn-btm-sliders">
+          <span onclick="btmSlide(1)"></span>
+          <span onclick="btmSlide(2)"></span>
+          <span onclick="btmSlide(3)"></span>
+          <span onclick="btmSlide(4)"></span>
+          <span onclick="btmSlide(5)"></span>
+        </div>
+      </div>
+
+    <script>
+      var indexValue = 1;
+      showImg(indexValue)
+
+      function btmSlide(e){
+        showImg(indexValue = e)
+
+      }
+
+      function sideSlide(e){
+        showImg(indexValue += e)
+
+      }
+
+      function showImg(e){
+
+        var i;
+        const img = document.querySelectorAll("img")
+        const slider = document.querySelectorAll(".btn-btm-sliders span")
+
+        if(e > img.length){indexValue = 1}
+        if(e < 1){indexValue = img.length}
+
+        for(i = 0; i < img.length;i++){
+          img[i].style.display = "none"
+        }
+        img[indexValue-1].style.display = "block"
+
+      }
+    </script>
+</body>
+</html>
